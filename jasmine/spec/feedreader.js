@@ -74,32 +74,44 @@ $(function() {
         it('hidden menu toggles', function() {
             const body = document.querySelector('body');
             const menu = document.querySelector('.menu-icon-link');
-
-            menu.click();
-            expect(body.classList.contains('menu-hidden')).toBe(false);
-
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
-
-        /* TODO: Write a new test suite named "Initial Entries" */
-
+    });
+    /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Initial Entries', function() {
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
+         * Remember, loadFeed() is asynchronous so this test wil require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
 
-        /* TODO: Write a new test suite named "New Feed Selection" */
+        beforeEach(function(done) {
+            loadFeed(0, done);
+        });
+        it('Has Single Entry Element Within Feed Container', function(done) {
+            const entries = $('.entry');
+            expect(entries.length).toBeGreaterThan(0);
+            done();
+        });
+    });
 
+    /* TODO: Write a new test suite named "New Feed Selection"*/
+    describe('New Feed Selection', function() {
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        beforeEach(function(done) {
+            oldFeed = $('.entry-link').attr('href');
+            loadFeed(1, done);
+        });
 
-
-
+        it('Content Changes when loaded', function(done) {
+            newFeed = $('.entry-link').attr('href');
+            expect(newFeed).not.toBe(oldFeed);
+            done();
+        });
     });
-
-
 }());
