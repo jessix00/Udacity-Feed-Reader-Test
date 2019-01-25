@@ -48,7 +48,6 @@ $(function() {
                 expect(feed.name).not.toBe(0);
             }
         });
-
     });
 
     /* TODO: Write a new test suite named "The menu" */
@@ -62,7 +61,6 @@ $(function() {
         it('hidden menu', function() {
             const body = document.querySelector('body');
             expect(body.classList.contains('menu-hidden')).toBe(true);
-
         });
 
         /* TODO: Write a test that ensures the menu changes
@@ -72,8 +70,9 @@ $(function() {
          */
 
         it('hidden menu toggles', function() {
-            const body = document.querySelector('body');
-            const menu = document.querySelector('.menu-icon-link');
+            $('a.menu-icon-link').trigger('click'); // show menu
+            expect($('body').hasClass('menu-hidden')).toBe(false);
+            $('a.menu-icon-link').trigger('click'); // hide menu again
             expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
