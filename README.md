@@ -3,8 +3,9 @@ Fourth project of Udacity's Web Development nanodegree. In this project I was gi
 application using [Jasmine](https://jasmine.github.io/).
 
 # Getting Started
-To get started, download the starter code from [Udacity's repo](https://github.com/udacity/frontend-nanodegree-feedreader). 
-You'll be adding your tests to feedreader.js under the Jasmine file under spec.
+1. To get started, download the starter code from [Udacity's repo](https://github.com/udacity/frontend-nanodegree-feedreader). 
+2. Open index.html in the browser of your choice. Once loaded, test results from Jasmine will be displayed at the bottom of the page.
+3. Add additional tests to feedreader.js document under the Jasmine file.
 
 # Tech Used
 * HTML
